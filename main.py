@@ -7,7 +7,7 @@ wb = openpyxl.load_workbook("import_sheet_1.xlsx")
 #getting a particular sheet
 sheet1 = wb["Sponsored Product Keyword Repor"]
 # print(sheet1.cell(row=1, column=3).value)
-f = open('fatmug.csv','w')
+f = open('export.csv','w')
 f.write('Date,Portfolio name, Campaign Name,Targeting,spend,click,sale,average acos,average cpc,final bid \n')
 col = sheet1.max_column
 row = sheet1.max_row
@@ -16,7 +16,6 @@ t_spend = 0
 t_click = 0
 t_sale = 0
 
-# for k in range(1, row+1):
 for i in range(1, row+1):
     # Match Type
     v = sheet1.cell( row=i, column=7).value
@@ -68,34 +67,3 @@ f.write(f' , , , , , , , {average_acos}, {average_cpc}, {final_bid} \n')
 
 print('\n')
 f.close()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# expwb = openpyxl.load_workbook("export_sheet_1.xlsx")
-
-# sheetex = exwb.sheetnames
-# print(sheetex)
-
-#getting a particular sheet
-# sheetexp = expwb["Sponsored Products Campaigns"]
-# print(sheetexp.cell(row=1, column=3).value)
-# sheetexp=sheetexp.active
-
-
-# sheetexp['A3'] = 'qwertyui'
-
-
-# sheetexp.cell(row=12,column=2).value=5
-# wb.save('export_sheet_1.xlsx')
-
